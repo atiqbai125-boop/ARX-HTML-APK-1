@@ -1,0 +1,14 @@
+services:
+  - type: worker
+    name: arx-html-to-apk-bot
+    runtime: python
+    plan: starter
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_URL
+        value: https://app-creator-x.ueu.workers.dev/api/v1/build
